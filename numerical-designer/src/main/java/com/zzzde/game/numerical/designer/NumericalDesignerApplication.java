@@ -1,5 +1,6 @@
 package com.zzzde.game.numerical.designer;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
