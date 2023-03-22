@@ -76,7 +76,7 @@ public class HeroTemplate {
     /**
      * 卡品质
      */
-    String color ;
+    HeroQuality color ;
 
     /**
      * 抽卡权重

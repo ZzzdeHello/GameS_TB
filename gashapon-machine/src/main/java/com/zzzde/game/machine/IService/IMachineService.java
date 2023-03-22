@@ -14,5 +14,7 @@ import java.util.List;
  */
 public interface IMachineService {
 
-    HeroTemplate getHero(RollEntity.RollType rollLevel) throws IOException;
+    int getHero(HeroTemplate template) throws IOException;
+
+    HeroTemplate getHeroTemplate(RollEntity.RollType rollLevel) throws IOException;
 }

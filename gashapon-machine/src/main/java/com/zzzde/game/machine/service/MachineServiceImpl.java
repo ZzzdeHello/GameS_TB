@@ -4,9 +4,7 @@ import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.zzzde.game.machine.IService.IMachineService;
-import com.zzzde.game.machine.entity.HeroDistribution;
-import com.zzzde.game.machine.entity.HeroTemplate;
-import com.zzzde.game.machine.entity.RollEntity;
+import com.zzzde.game.machine.entity.*;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -21,13 +19,11 @@ import java.util.*;
 @Service
 public class MachineServiceImpl implements IMachineService {
 
-    public HeroTemplate getHero(RollEntity.RollType rollLevel) throws IOException {
+    @Override
+    public int getHero(HeroTemplate template) throws IOException {
         String localDir = System.getProperty("user.dir");
         File distribution = new File(localDir + "\\src\\main\\resources\\hero-distribution.json");
-        File probability = new File(localDir + "\\src\\main\\resources\\hero-probability.json");
-        // FileReader fileReader = new FileReader(file);
         InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(distribution), StandardCharsets.UTF_8);
-        InputStreamReader probabilityStreamReader = new InputStreamReader(new FileInputStream(probability), StandardCharsets.UTF_8);
         StringBuilder sb = new StringBuilder();
         int ch;
         while ((ch = inputStreamReader.read()) != -1) {
@@ -35,7 +31,23 @@ public class MachineServiceImpl implements IMachineService {
         }
         String HeroDistributionJson = sb.toString();
         HeroDistribution heroDistribution = JSON.parseObject(HeroDistributionJson, HeroDistribution.class);
+        HeroQuality color = template.getColor();
+        int[] heroPool = new int[]{};
+        if (color.equals(HeroQuality.WHITE)) heroPool = heroDistribution.getWhite();
+        if (color.equals(HeroQuality.GREEN)) heroPool = heroDistribution.getGreen();
+        if (color.equals(HeroQuality.PURPLE)) heroPool = heroDistribution.getPurple();
+        if (color.equals(HeroQuality.ORANGE)) heroPool = heroDistribution.getOrange();
+        if (color.equals(HeroQuality.RED)) heroPool = heroDistribution.getRed();
+        int i = RandomUtil.randomInt(0, heroPool.length);
+        return heroPool[i];
+    }
 
+    @Override
+    public HeroTemplate getHeroTemplate(RollEntity.RollType rollLevel) throws IOException {
+
+        String localDir = System.getProperty("user.dir");
+        File probability = new File(localDir + "\\src\\main\\resources\\hero-probability.json");
+        InputStreamReader probabilityStreamReader = new InputStreamReader(new FileInputStream(probability), StandardCharsets.UTF_8);
         StringBuilder sb2 = new StringBuilder();
         int ch1;
         while ((ch1 = probabilityStreamReader.read()) != -1) {
@@ -49,15 +61,15 @@ public class MachineServiceImpl implements IMachineService {
 
     public HeroTemplate lottery(RollEntity roll) {
         HeroTemplate w = new HeroTemplate();
-        w.setColor("white").setRollWeight(roll.getWPer());
+        w.setColor(HeroQuality.WHITE).setRollWeight(roll.getWPer());
         HeroTemplate g = new HeroTemplate();
-        g.setColor("green").setRollWeight(roll.getGPer());
+        g.setColor(HeroQuality.GREEN).setRollWeight(roll.getGPer());
         HeroTemplate p = new HeroTemplate();
-        p.setColor("purple").setRollWeight(roll.getPPer());
+        p.setColor(HeroQuality.PURPLE).setRollWeight(roll.getPPer());
         HeroTemplate o = new HeroTemplate();
-        o.setColor("orange").setRollWeight(roll.getOPer());
+        o.setColor(HeroQuality.ORANGE).setRollWeight(roll.getOPer());
         HeroTemplate r = new HeroTemplate();
-        r.setColor("red").setRollWeight(roll.getRPer());
+        r.setColor(HeroQuality.RED).setRollWeight(roll.getRPer());
         List<HeroTemplate> list = new ArrayList<>();
         list.add(w);
         list.add(g);
@@ -70,10 +82,8 @@ public class MachineServiceImpl implements IMachineService {
         for (HeroTemplate heroTemplate : list) {
             nodeList.add(nodeList.get(nodeList.size() - 1) + heroTemplate.getRollWeight().intValue());
         }
-
         //生成 0-结束节点 的随机数
         int randomInt = RandomUtil.randomInt(0, nodeList.get(nodeList.size() - 1));
-
         //最终抽奖逻辑 此处需要从第二个节点开始遍历
         for (int i = 1; i < nodeList.size(); i++) {
             //本次节点

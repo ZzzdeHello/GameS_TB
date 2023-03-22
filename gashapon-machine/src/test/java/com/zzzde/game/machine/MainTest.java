@@ -51,28 +51,34 @@ public class MainTest {
         for (int i = 0; i < 100; i++) {
             HeroTemplate hero = null;
             try {
-                hero = machineService.getHero(RollEntity.RollType.LEVEL_2);
+                hero = machineService.getHeroTemplate(RollEntity.RollType.LEVEL_2);
             } catch (IOException e) {
                 e.printStackTrace();
             }
             if (hero != null) {
                 switch (hero.getColor()) {
-                    case "green":
+                    case GREEN:
                         numG += 1;
                         break;
-                    case "white":
+                    case WHITE:
                         numW += 1;
                         break;
-                    case "purple":
+                    case PURPLE:
                         numP += 1;
                         break;
-                    case "orange":
+                    case ORANGE:
                         numO += 1;
                         break;
-                    case "red":
+                    case RED:
                         numR += 1;
                         break;
                 }
+            }
+            try {
+                int hero1 = machineService.getHero(hero);
+                System.out.println("抽到的hero的ID: -" + hero1);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
         System.out.println("-white: " + numW);

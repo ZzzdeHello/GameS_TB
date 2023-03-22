@@ -17,24 +17,6 @@ public class RollEntity {
     double pPer;
     double oPer;
     double rPer;
-
-    int hitType;
-
-    /**
-     * roll 之后命中的类型
-     */
-    @Getter
-    @AllArgsConstructor
-    public enum HitType {
-        LEVEL_1 (1,"white"),
-        LEVEL_2 (2,"green"),
-        LEVEL_3 (3,"purple"),
-        LEVEL_4 (4,"orange"),
-        LEVEL_5 (5,"red");
-        private int anInt;
-        private String color ;
-    }
-
     /**
      * 抽取方式
      */
