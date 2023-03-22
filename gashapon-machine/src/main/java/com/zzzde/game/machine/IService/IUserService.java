@@ -1,4 +1,4 @@
-package com.zzzde.game.machine.service;
+package com.zzzde.game.machine.IService;
 
 import com.zzzde.game.machine.entity.User;
 

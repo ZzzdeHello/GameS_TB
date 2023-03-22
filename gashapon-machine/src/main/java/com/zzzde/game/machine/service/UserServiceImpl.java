@@ -1,5 +1,6 @@
 package com.zzzde.game.machine.service;
 
+import com.zzzde.game.machine.IService.IUserService;
 import com.zzzde.game.machine.dao.UserDao;
 import com.zzzde.game.machine.entity.User;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements IUserService{
+public class UserServiceImpl implements IUserService {
 
     private final UserDao userDao;
 
