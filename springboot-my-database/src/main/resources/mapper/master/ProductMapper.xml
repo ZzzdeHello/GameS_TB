@@ -12,7 +12,7 @@
         VALUES(#{name},#{price},#{createDate});
     </select>
 
-    <select id="deleteById" parameterType="long" resultType="int">
+    <select id="deleteById" parameterType="long">
         delete from product where id = #{id}
     </select>
 </mapper>

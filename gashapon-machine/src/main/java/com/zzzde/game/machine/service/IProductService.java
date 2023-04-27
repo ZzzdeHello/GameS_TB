@@ -23,5 +23,5 @@ public interface IProductService {
     Product queryProductById(Long id);
 
     @CacheEvict(key = "'product::' + #id")
-    int deleteProductById(Long id);
+    void deleteProductById(Long id);
 }

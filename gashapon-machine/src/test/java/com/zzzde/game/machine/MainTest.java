@@ -41,7 +41,10 @@ public class MainTest {
         Product product = productService.queryProductById(1L);
         System.out.println(product);
     }
-
+    @Test
+    public void testDeleteCache(){
+         productService.deleteProductById(1L);
+    }
     @Test
     public void test() {
         User user = userServiceImpl.getUser();

@@ -14,5 +14,5 @@ public interface ProductDao {
 
     int add(Product product);
 
-    int deleteById(Long id);
+    void deleteById(Long id);
 }

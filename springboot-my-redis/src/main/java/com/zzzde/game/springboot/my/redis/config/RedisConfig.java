@@ -50,7 +50,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         // 生成一个默认配置，通过config对象即可对缓存进行自定义配置
         RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig();
         // 设置缓存的默认过期时间，也是使用Duration设置
-        config = config.entryTtl(Duration.ofMinutes(5))
+        config = config.entryTtl(Duration.ofMinutes(60))
                 .disableCachingNullValues();
         // 使用自定义的缓存配置初始化一个cacheManager
         return RedisCacheManager

@@ -29,7 +29,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public int deleteProductById(Long id) {
-        return dao.deleteById(id);
+    public void deleteProductById(Long id) {
+         dao.deleteById(id);
     }
 }

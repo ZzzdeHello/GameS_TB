@@ -1,0 +1,3 @@
+# Run Listeners
+org.springframework.boot.SpringApplicationRunListener=\
+com.zzzde.game.machine.aop.tools.MySpringApplicationRunListener
