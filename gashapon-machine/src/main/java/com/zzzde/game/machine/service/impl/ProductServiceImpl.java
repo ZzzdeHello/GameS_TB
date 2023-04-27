@@ -1,7 +1,7 @@
 package com.zzzde.game.machine.service.impl;
 
 import com.zzzde.game.machine.service.IProductService;
-import com.zzzde.game.springboot.my.database.dao.ProductDao;
+import com.zzzde.game.springboot.my.database.dao.master.ProductDao;
 import com.zzzde.game.springboot.my.database.entity.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.zzzde.game.springboot.my.database.dao;
+package com.zzzde.game.springboot.my.database.dao.master;
 
 import com.zzzde.game.springboot.my.database.entity.User;
 

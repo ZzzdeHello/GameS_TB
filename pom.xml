@@ -36,6 +36,7 @@
 
         <mysql-version>8.0.17</mysql-version>
         <mybatis-plus-version>3.5.2</mybatis-plus-version>
+        <druid-spring-boot-starter-version>1.2.4</druid-spring-boot-starter-version>
 
         <hutool-version>5.8.10</hutool-version>
 
@@ -106,6 +107,11 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter-version}</version>
             </dependency>
             <!--            mybatis-plus-->
             <dependency>
