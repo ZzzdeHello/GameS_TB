@@ -66,6 +66,11 @@
                 <artifactId>gashapon-machine</artifactId>
                 <version>${zzzde.game}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-starter}</version>
+            </dependency>
             <!-- 引入Spring封装的jdbc，内部默认依赖了 HikariDataSource  数据源-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>

@@ -1,8 +1,8 @@
 # DataSource Config
 spring:
   datasource:
-    type: com.zaxxer.hikari.HikariDataSource
     # 数据库连接
+    type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/demo?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
     username: root
@@ -23,3 +23,25 @@ spring:
       connection-timeout: 30000
       # 连接池每分配一条连接前执行的查询语句
       connection-test-query: SELECT 1
+  redis:
+    # Redis数据库索引（默认为0）
+    database: 1
+    # Redis服务器地址
+    host: 121.43.184.162
+    # Redis服务器连接端口
+    port: 6379
+    # 密码
+    password: 123456
+    # ssl 开启
+    ssl: false
+    pool:
+      # 连接池最大连接数（使用负值表示没有限制）
+      max-active: 8
+      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      max-wait: -1
+      # 连接池中的最大空闲连接
+      max-idle: 8
+      # 连接池中的最小空闲连接
+      min-idle: 0
+    # 连接超时时间（毫秒）
+    timeout: 5000
