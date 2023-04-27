@@ -1,4 +1,4 @@
-package com.zzzde.game.machine.config;
+package com.zzzde.game.springboot.my.database.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2022/12/6
  */
 @Configuration
-@MapperScan("com.zzzde.game.machine.dao")
+@MapperScan("com.zzzde.game.springboot.my.database.dao")
 public class MyBatisPlusConfiguration {
     /**
      * 分页插件

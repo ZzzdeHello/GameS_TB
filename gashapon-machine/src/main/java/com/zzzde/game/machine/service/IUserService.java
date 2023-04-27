@@ -1,6 +1,6 @@
-package com.zzzde.game.machine.IService;
+package com.zzzde.game.machine.service;
 
-import com.zzzde.game.machine.entity.User;
+import com.zzzde.game.springboot.my.database.entity.User;
 
 /**
  * @author zzzde

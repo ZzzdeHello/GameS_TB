@@ -1,4 +1,4 @@
-package com.zzzde.game.machine.entity;
+package com.zzzde.game.machine.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

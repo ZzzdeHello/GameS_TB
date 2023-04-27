@@ -1,11 +1,9 @@
-package com.zzzde.game.machine.IService;
+package com.zzzde.game.machine.service;
 
-import com.zzzde.game.machine.entity.Hero;
-import com.zzzde.game.machine.entity.HeroTemplate;
-import com.zzzde.game.machine.entity.RollEntity;
+import com.zzzde.game.machine.domain.HeroTemplate;
+import com.zzzde.game.machine.domain.RollEntity;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * @author zzzde

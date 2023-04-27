@@ -1,23 +1,20 @@
 package com.zzzde.game.machine;
 
 import com.alibaba.fastjson.JSON;
-import com.zzzde.game.machine.IService.IMachineService;
-import com.zzzde.game.machine.entity.HeroDistribution;
-import com.zzzde.game.machine.entity.HeroTemplate;
-import com.zzzde.game.machine.entity.RollEntity;
-import com.zzzde.game.machine.entity.User;
-import com.zzzde.game.machine.service.UserServiceImpl;
+import com.zzzde.game.machine.service.IMachineService;
+import com.zzzde.game.machine.domain.HeroTemplate;
+import com.zzzde.game.machine.domain.RollEntity;
+import com.zzzde.game.machine.service.IProductService;
+import com.zzzde.game.machine.service.IUserService;
+import com.zzzde.game.springboot.my.database.entity.Product;
+import com.zzzde.game.springboot.my.database.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
 
 /**
  * @author zzzde
@@ -30,10 +27,19 @@ import java.util.List;
 public class MainTest {
 
     @Resource
-    private UserServiceImpl userServiceImpl;
+    private IProductService productService;
+
+    @Resource
+    private IUserService userServiceImpl;
 
     @Resource
     private IMachineService machineService;
+
+    @Test
+    public void testCache(){
+        Product product = productService.queryProductById(1L);
+        System.out.println(product);
+    }
 
     @Test
     public void test() {

@@ -1,10 +1,13 @@
-package com.zzzde.game.machine.service;
+package com.zzzde.game.machine.service.impl;
 
 import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.zzzde.game.machine.IService.IMachineService;
-import com.zzzde.game.machine.entity.*;
+import com.zzzde.game.machine.service.IMachineService;
+import com.zzzde.game.machine.domain.HeroDistribution;
+import com.zzzde.game.machine.domain.HeroQuality;
+import com.zzzde.game.machine.domain.HeroTemplate;
+import com.zzzde.game.machine.domain.RollEntity;
 import org.springframework.stereotype.Service;
 
 import java.io.*;

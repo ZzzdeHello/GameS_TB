@@ -1,4 +1,4 @@
-package com.zzzde.game.machine.entity;
+package com.zzzde.game.springboot.my.database.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

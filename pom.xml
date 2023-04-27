@@ -21,6 +21,8 @@
     <modules>
         <module>numerical-designer</module>
         <module>gashapon-machine</module>
+        <module>springboot-my-redis</module>
+        <module>springboot-my-database</module>
     </modules>
 
     <properties>
@@ -36,11 +38,34 @@
         <mybatis-plus-version>3.5.2</mybatis-plus-version>
 
         <hutool-version>5.8.10</hutool-version>
+
+        <zzzde.game>1.0-SNAPSHOT</zzzde.game>
     </properties>
 
-
+    <!--项目通用依赖-->
     <dependencyManagement>
         <dependencies>
+            <!-- zzzde-->
+            <dependency>
+                <groupId>com.zzzde.game</groupId>
+                <artifactId>springboot-my-database</artifactId>
+                <version>${zzzde.game}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zzzde.game</groupId>
+                <artifactId>springboot-my-redis</artifactId>
+                <version>${zzzde.game}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zzzde.game</groupId>
+                <artifactId>numerical-designer</artifactId>
+                <version>${zzzde.game}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zzzde.game</groupId>
+                <artifactId>gashapon-machine</artifactId>
+                <version>${zzzde.game}</version>
+            </dependency>
             <!-- 引入Spring封装的jdbc，内部默认依赖了 HikariDataSource  数据源-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -71,14 +96,13 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
-
             <!--数据库-->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql-version}</version>
             </dependency>
-<!--            mybatis-plus-->
+            <!--            mybatis-plus-->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>

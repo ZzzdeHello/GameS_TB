@@ -1,8 +1,8 @@
-package com.zzzde.game.machine.service;
+package com.zzzde.game.machine.service.impl;
 
-import com.zzzde.game.machine.IService.IUserService;
-import com.zzzde.game.machine.dao.UserDao;
-import com.zzzde.game.machine.entity.User;
+import com.zzzde.game.machine.service.IUserService;
+import com.zzzde.game.springboot.my.database.dao.UserDao;
+import com.zzzde.game.springboot.my.database.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
