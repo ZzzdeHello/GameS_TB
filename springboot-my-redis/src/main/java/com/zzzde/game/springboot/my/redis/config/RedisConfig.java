@@ -1,7 +1,11 @@
 package com.zzzde.game.springboot.my.redis.config;
 
 
+import com.zzzde.game.springboot.my.redis.IRedisService;
+import com.zzzde.game.springboot.my.redis.manager.RedisUtil;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.cache.CacheProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.interceptor.KeyGenerator;
@@ -11,9 +15,13 @@ import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import redis.clients.jedis.JedisPoolConfig;
 
 import java.time.Duration;
 
@@ -25,6 +33,53 @@ import java.time.Duration;
  */
 @Configuration
 public class RedisConfig extends CachingConfigurerSupport {
+
+    @Value("${spring.redis.host}")
+    private String host;
+    @Value("${spring.redis.database}")
+    private Integer database;
+    @Value("${spring.redis.port}")
+    private Integer port;
+    @Value("${spring.redis.password}")
+    private String pwd;
+    @Value("${spring.redis.pool.max-wait}")
+    private Long maxWait;
+
+    @Bean(name = "jedisPoolConfig")
+    @ConfigurationProperties(prefix = "spring.redis.pool")
+    public JedisPoolConfig jedisPoolConfig() {
+        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+        jedisPoolConfig.setMaxWait(Duration.ofSeconds(maxWait));
+        return jedisPoolConfig;
+    }
+
+    @Bean
+    public RedisConnectionFactory redisConnectionFactory(JedisPoolConfig jedisPoolConfig) {
+        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
+        redisStandaloneConfiguration.setHostName(host);
+        redisStandaloneConfiguration.setDatabase(database);
+        redisStandaloneConfiguration.setPassword(pwd);
+        redisStandaloneConfiguration.setPort(port);
+        JedisClientConfiguration.JedisPoolingClientConfigurationBuilder jpcb = (JedisClientConfiguration.JedisPoolingClientConfigurationBuilder) JedisClientConfiguration.builder();
+        jpcb.poolConfig(jedisPoolConfig);
+        JedisClientConfiguration jedisClientConfiguration = jpcb.build();
+        return new JedisConnectionFactory(redisStandaloneConfiguration, jedisClientConfiguration);
+    }
+
+    @Bean
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
+        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+        // key采用String的序列化方式
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        // hash的key也采用String的序列化方式
+        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+        // value序列化方式采用java
+        redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
+        // hash的value序列化方式采用java
+        redisTemplate.setHashValueSerializer(new JdkSerializationRedisSerializer());
+        redisTemplate.setConnectionFactory(factory);
+        return redisTemplate;
+    }
 
     // 自定义缓存key生成策略
     @Bean
@@ -61,17 +116,8 @@ public class RedisConfig extends CachingConfigurerSupport {
     }
 
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
-        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
-        // key采用String的序列化方式
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-        // hash的key也采用String的序列化方式
-        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
-        // value序列化方式采用java
-        redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
-        // hash的value序列化方式采用java
-        redisTemplate.setHashValueSerializer(new JdkSerializationRedisSerializer());
-        redisTemplate.setConnectionFactory(factory);
-        return redisTemplate;
+    public IRedisService redisService(RedisTemplate redisTemplate) {
+        return new RedisUtil(redisTemplate);
     }
+
 }

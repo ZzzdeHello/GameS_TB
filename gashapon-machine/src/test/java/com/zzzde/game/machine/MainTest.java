@@ -97,4 +97,10 @@ public class MainTest {
         System.out.println("-orange: " + numO);
         System.out.println("-red: " + numR);
     }
+
+
+    @Test
+    public void testTemplateCache(){
+        userServiceImpl.setCacheUser("zhuhangxuan");
+    }
 }

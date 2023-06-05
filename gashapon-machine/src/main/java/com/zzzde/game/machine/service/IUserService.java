@@ -9,4 +9,6 @@ import com.zzzde.game.springboot.my.database.entity.User;
  */
 public interface IUserService {
     User getUser();
+
+    void setCacheUser(String value);
 }

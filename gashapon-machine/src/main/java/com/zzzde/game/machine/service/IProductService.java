@@ -13,15 +13,15 @@ import org.springframework.cache.annotation.Cacheable;
  * @version 1.0
  * @date 2023/4/26 15:06
  */
-@CacheConfig(cacheNames = "cache::product")
+@CacheConfig(cacheNames = "cache:product")
 public interface IProductService {
 
-    @CachePut(key = "'product::' + #product.id")
+    @CachePut(key = "'product:' + #product.id")
     int addProduct(Product product);
 
-    @Cacheable(key = "'product::' + #id")
+    @Cacheable(key = "'product:' + #id")
     Product queryProductById(Long id);
 
-    @CacheEvict(key = "'product::' + #id")
+    @CacheEvict(key = "'product:' + #id")
     void deleteProductById(Long id);
 }

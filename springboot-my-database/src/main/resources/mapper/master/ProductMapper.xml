@@ -3,7 +3,7 @@
 <mapper namespace="com.zzzde.game.springboot.my.database.dao.master.ProductDao">
 
     <select id="queryById" resultType="com.zzzde.game.springboot.my.database.entity.Product">
-        select * from product
+        select * from product where id = #{id}
     </select>
 
     <select id="add" parameterType="com.zzzde.game.springboot.my.database.entity.Product" resultType="int">
