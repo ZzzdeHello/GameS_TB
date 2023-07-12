@@ -83,6 +83,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     // 自定义缓存key生成策略
     @Bean
+    @Override
     public KeyGenerator keyGenerator() {
         return new KeyGenerator() {
             @Override
