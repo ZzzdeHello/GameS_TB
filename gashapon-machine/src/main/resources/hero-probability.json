@@ -1,0 +1,42 @@
+{
+  "level-1": {
+    "money": 100,
+    "wPer": 99,
+    "gPer": 1,
+    "pPer": 0,
+    "oPer": 0,
+    "rPer": 0
+  },
+  "level-2":{
+    "money": 400,
+    "wPer": 60,
+    "gPer": 34,
+    "pPer": 1,
+    "oPer": 0,
+    "rPer": 0
+  },
+  "level-3":{
+    "money": 1600,
+    "wPer": 35,
+    "gPer": 40,
+    "pPer": 24,
+    "oPer": 1,
+    "rPer": 0
+  },
+  "level-4": {
+    "money": 6400,
+    "wPer": 10,
+    "gPer": 30,
+    "pPer": 40,
+    "oPer": 19,
+    "rPer": 1
+  },
+  "level-5": {
+    "money": 25600,
+    "wPer": 0,
+    "gPer": 10,
+    "pPer": 25,
+    "oPer": 40,
+    "rPer": 25
+  }
+}
