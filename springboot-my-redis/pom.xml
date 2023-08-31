@@ -13,7 +13,7 @@
     <groupId>com.zzzde.game</groupId>
     <artifactId>springboot-my-redis</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>springbooot-my-redis</name>
+    <name>springboot-my-redis</name>
 
     <dependencies>
         <!--spring-cache-->
