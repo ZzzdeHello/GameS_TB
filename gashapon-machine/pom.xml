@@ -23,13 +23,17 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.zzzde.game</groupId>
-            <artifactId>springboot-my-database</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.zzzde.game</groupId>-->
+<!--            <artifactId>springboot-my-database</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.zzzde.game</groupId>
             <artifactId>springboot-my-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zzzde.game</groupId>
+            <artifactId>springboot-my-mutile-mybatis-plus</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

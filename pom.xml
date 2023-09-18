@@ -59,6 +59,11 @@
             </dependency>
             <dependency>
                 <groupId>com.zzzde.game</groupId>
+                <artifactId>springboot-my-mutile-mybatis-plus</artifactId>
+                <version>${zzzde.game}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zzzde.game</groupId>
                 <artifactId>numerical-designer</artifactId>
                 <version>${zzzde.game}</version>
             </dependency>
