@@ -1,5 +1,6 @@
 package com.zzzde.game.machine.controller;
 
+import com.zzzde.game.machine.aop.tools.RateLimitAspect;
 import com.zzzde.game.tb.common.ResponseEnum;
 import com.zzzde.game.tb.common.dal.ResponseDTO;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,17 @@ public class TestController {
     @PostMapping("limit")
     @ResponseBody
     public ResponseDTO<String> testLimit(@RequestParam("test") String test) {
+        ResponseDTO<String> dto = new ResponseDTO<>();
+        dto.setCode(ResponseEnum.OK.getCode());
+        dto.setMessage(ResponseEnum.OK.getMessage());
+        dto.setData(test + "请求成功服务器添加的字符串");
+        return dto;
+    }
+
+    @PostMapping("aspectLimit")
+    @ResponseBody
+    @RateLimitAspect
+    public ResponseDTO<String> testAspectLimit(@RequestParam("test") String test) {
         ResponseDTO<String> dto = new ResponseDTO<>();
         dto.setCode(ResponseEnum.OK.getCode());
         dto.setMessage(ResponseEnum.OK.getMessage());
