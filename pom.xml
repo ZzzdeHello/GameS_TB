@@ -35,10 +35,12 @@
         <fastjson.version>1.2.83</fastjson.version>
 
         <mysql-version>8.0.17</mysql-version>
-        <mybatis-plus-version>3.5.2</mybatis-plus-version>
+        <mybatis-plus-version>3.5.1</mybatis-plus-version>
         <druid-spring-boot-starter-version>1.2.4</druid-spring-boot-starter-version>
 
         <hutool-version>5.8.10</hutool-version>
+
+        <google-guava-version>32.1.2-jre</google-guava-version>
 
         <zzzde.game>1.0-SNAPSHOT</zzzde.game>
     </properties>
@@ -72,6 +74,12 @@
                 <artifactId>gashapon-machine</artifactId>
                 <version>${zzzde.game}</version>
             </dependency>
+            <dependency>
+                <groupId>com.zzzde.game</groupId>
+                <artifactId>games-tb-common</artifactId>
+                <version>${zzzde.game}</version>
+            </dependency>
+            <!-- spring-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
@@ -125,9 +133,19 @@
                 <version>${mybatis-plus-version}</version>
             </dependency>
             <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-version}</version>
+            </dependency>
+            <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${google-guava-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -148,14 +166,6 @@
                     <target>${maven.compiler.target}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <parameters>true</parameters>
-                </configuration>
-            </plugin>
-            <!-- 跳过单元测试 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
                 </configuration>
             </plugin>
             <!-- 源码插件 -->

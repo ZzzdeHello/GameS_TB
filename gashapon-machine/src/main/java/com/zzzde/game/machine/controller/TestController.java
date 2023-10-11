@@ -1,0 +1,28 @@
+package com.zzzde.game.machine.controller;
+
+import com.zzzde.game.tb.common.ResponseEnum;
+import com.zzzde.game.tb.common.dal.ResponseDTO;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+/**
+ * @Author zzzde
+ * @Date 2023/10/10
+ */
+@Controller
+@RequestMapping("/machine/test")
+public class TestController {
+
+    @PostMapping("limit")
+    @ResponseBody
+    public ResponseDTO<String> testLimit(@RequestParam("test") String test) {
+        ResponseDTO<String> dto = new ResponseDTO<>();
+        dto.setCode(ResponseEnum.OK.getCode());
+        dto.setMessage(ResponseEnum.OK.getMessage());
+        dto.setData(test + "请求成功服务器添加的字符串");
+        return dto;
+    }
+}

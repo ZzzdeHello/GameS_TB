@@ -23,10 +23,14 @@
     </properties>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>com.zzzde.game</groupId>-->
-<!--            <artifactId>springboot-my-database</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.zzzde.game</groupId>-->
+        <!--            <artifactId>springboot-my-database</artifactId>-->
+        <!--        </dependency>-->
+        <dependency>
+            <groupId>com.zzzde.game</groupId>
+            <artifactId>games-tb-common</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.zzzde.game</groupId>
             <artifactId>springboot-my-redis</artifactId>
@@ -55,6 +59,10 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
