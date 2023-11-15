@@ -43,6 +43,7 @@
         <google-guava-version>32.1.2-jre</google-guava-version>
 
         <zzzde.game>1.0-SNAPSHOT</zzzde.game>
+        <metis-api-version>1.0.2-SNAPSHOT</metis-api-version>
     </properties>
 
     <!--项目通用依赖-->
@@ -146,6 +147,11 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${google-guava-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.net.yugu</groupId>
+                <artifactId>metis-api</artifactId>
+                <version>${metis-api-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

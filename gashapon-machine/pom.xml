@@ -74,6 +74,11 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>cn.net.yugu</groupId>
+            <artifactId>metis-api</artifactId>
+            <version>1.0.2-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
