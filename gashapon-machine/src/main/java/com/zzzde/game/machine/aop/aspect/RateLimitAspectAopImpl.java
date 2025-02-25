@@ -34,7 +34,7 @@ public class RateLimitAspectAopImpl {
     /**
      * 设置QPS 每秒可访问数量
      */
-    private static final RateLimiter rateLimiter = RateLimiter.create(0.1);
+    private static final RateLimiter rateLimiter = RateLimiter.create(5);
 
     /**
      * 切点注解

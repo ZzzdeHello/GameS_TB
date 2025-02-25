@@ -23,4 +23,18 @@ public class HdExchangeBespeakBatteryReqDTO implements Serializable {
      * 需要重新计算的电池详情集合
      */
     List<BatteryInfoDTO> batteryInfoList;
+
+
+    Integer type;
+
+
+    /**
+     * 骑手ID.
+     */
+    private Long customerId;
+
+    /**
+     * 柜子Id
+     */
+    public String cabinetId;
 }

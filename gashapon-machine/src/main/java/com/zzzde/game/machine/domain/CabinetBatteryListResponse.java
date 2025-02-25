@@ -37,6 +37,7 @@ public class CabinetBatteryListResponse {
     }
 
     public String cabinetId;
+    public Integer type;
     public List<Battery> batteryList = new ArrayList<>();
-    public List<CabinetBox> boxList = new ArrayList<>();
+    public List<CabinetBox> cabinetBoxList = new ArrayList<>();
 }

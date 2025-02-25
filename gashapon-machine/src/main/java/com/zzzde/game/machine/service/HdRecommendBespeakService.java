@@ -12,7 +12,8 @@ import com.zzzde.game.machine.domain.HdMarkBespeakBatteryRspDTO;
  */
 public interface HdRecommendBespeakService {
 
-    DataResult<HdRecommendBespeakQueryResponse> recommendBatteriesBespeakQuery(HdRecommendBespeakQueryRequest recommendationRequest);
+    DataResult<HdRecommendBespeakQueryResponse> recommendBatteriesBespeakQuery(HdRecommendBespeakQueryRequest recommendationRequest,Integer type);
 
-    HdMarkBespeakBatteryRspDTO bespeakBatteryExchange(HdExchangeBespeakBatteryReqDTO hdExchangeBespeakBatteryReqDTO);
+    HdMarkBespeakBatteryRspDTO bespeakBatteryExchangeB(HdExchangeBespeakBatteryReqDTO hdExchangeBespeakBatteryReqDTO);
+    HdMarkBespeakBatteryRspDTO bespeakBatteryExchangeC(HdExchangeBespeakBatteryReqDTO hdExchangeBespeakBatteryReqDTO);
 }
